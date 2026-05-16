@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book a Table - The Golden Fork</title>
+    
+    <style>
+        /* Modern Minimalist Luxury Theme (Synced Across Site) */
+        :root {
+            --primary-green: #1e3527; /* Darker Luxury Forest Green */
+            --accent-sage: #7a8f7c;   /* Refined Sage */
+            --bg-cream: #fbf8f3;      /* Ultra Premium Soft Cream */
+            --text-dark: #222222;
+            --text-muted: #5a655d;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-cream);
+            color: var(--text-dark);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Navbar - Premium Minimalist */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 35px 8%;
+            background: transparent;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--primary-green);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 15px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            padding: 10px 20px;
+            border-radius: 50px;
+            transition: all 0.4s ease;
+        }
+
+        nav ul li a:hover {
+            background-color: rgba(45, 71, 57, 0.06);
+            color: var(--primary-green);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 40px auto 100px auto;
+            padding: 0 5%;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 5vw, 3.8rem);
+            color: var(--primary-green);
+            text-align: center;
+            margin-bottom: 50px;
+            opacity: 0;
+            animation: fadeInUp 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+        }
+
+        /* Luxury Reservation Form */
+        form { 
+            background: #ffffff; 
+            padding: 45px 40px; 
+            border-radius: 30px 10px 30px 10px; /* Consistent Asymmetric Corners */
+            box-shadow: 0 30px 70px rgba(45, 71, 57, 0.08); 
+            max-width: 480px; 
+            margin: 0 auto; 
+            display: flex; 
+            flex-direction: column; 
+            gap: 22px; 
+            border: 1px solid rgba(45, 71, 57, 0.05);
+            opacity: 0;
+            animation: fadeInUp 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) 0.3s forwards;
+        }
+
+        /* Input Fields Styling */
+        input, select { 
+            padding: 15px 18px; 
+            border: 1px solid rgba(45, 71, 57, 0.15); 
+            background-color: #faf9f6;
+            border-radius: 12px; 
+            font-size: 0.95rem;
+            color: var(--text-dark);
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        input::placeholder {
+            color: #a0aaa2;
+        }
+
+        /* Active field styling */
+        input:focus, select:focus, input:hover, select:hover {
+            border-color: var(--primary-green);
+            background-color: #ffffff;
+            box-shadow: 0 0 0 4px rgba(45, 71, 57, 0.04);
+        }
+
+        /* Premium Submit Button */
+        .btn {
+            background-color: var(--primary-green);
+            color: #ffffff;
+            padding: 16px;
+            border: none;
+            border-radius: 12px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            margin-top: 10px;
+        }
+
+        .btn:hover {
+            background-color: #2d4739;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(45, 71, 57, 0.2);
+        }
+
+        .btn:active {
+            transform: translateY(0);
+        }
+
+        /* Keyframes */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Mobile Optimization */
+        @media (max-width: 768px) {
+            nav { flex-direction: column; gap: 25px; padding: 25px 5%; }
+            nav ul { gap: 5px; }
+            nav ul li a { padding: 8px 12px; font-size: 0.75rem; }
+            h1 { font-size: 2.3rem; margin-bottom: 35px; }
+            form { padding: 30px 25px; gap: 18px; }
+        }
+    </style>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">The Golden Fork</div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="menu.html">Menu</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <section class="container">
+        <h1>Reserve a Table</h1>
+        
+        <form id="bookForm">
+            <input type="text" placeholder="Aapka Naam" required>
+            <input type="email" placeholder="Email Address" required>
+            <input type="date" required>
+            <select required>
+                <option value="" disabled selected hidden>Kitne Log Hain?</option>
+                <option>2 People</option>
+                <option>4 People</option>
+                <option>6+ People</option>
+            </select>
+            <button type="submit" class="btn">Confirm Booking</button>
+        </form>
+    </section>
+
+    <!-- Script to handle Alert -->
+    <script>
+        document.getElementById('bookForm').onsubmit = (e) => {
+            e.preventDefault();
+            alert("Dhanyawad! Aapka table reserve ho gaya hai.");
+        };
+    </script>
+</body>
+</html>

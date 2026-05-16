@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - The Golden Fork</title>
+    
+    <style>
+        /* Modern Minimalist Luxury Theme (Synced Across Site) */
+        :root {
+            --primary-green: #1e3527; /* Darker Luxury Forest Green */
+            --accent-sage: #7a8f7c;   /* Refined Sage */
+            --bg-cream: #fbf8f3;      /* Ultra Premium Soft Cream */
+            --text-dark: #222222;
+            --text-muted: #5a655d;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-cream);
+            color: var(--text-dark);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Navbar - Premium Minimalist */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 35px 8%;
+            background: transparent;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--primary-green);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 15px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            padding: 10px 20px;
+            border-radius: 50px;
+            transition: all 0.4s ease;
+        }
+
+        nav ul li a:hover {
+            background-color: rgba(45, 71, 57, 0.06);
+            color: var(--primary-green);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 40px auto 100px auto;
+            padding: 0 5%;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 5vw, 3.8rem);
+            color: var(--primary-green);
+            text-align: center;
+            margin-bottom: 60px;
+            opacity: 0;
+            animation: fadeInUp 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+        }
+
+        /* Premium Gallery Grid */
+        .gallery-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+            gap: 30px; 
+            opacity: 0;
+            animation: fadeInUp 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) 0.3s forwards;
+        }
+
+        /* Image Wrapper for smooth animations and effects */
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 30px 8px 30px 8px; /* Organic asymmetrical corners matching the site theme */
+            box-shadow: 0 15px 35px rgba(45, 71, 57, 0.08);
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.6s ease;
+            cursor: pointer;
+        }
+
+        .gallery-grid img { 
+            width: 100%; 
+            height: 280px; 
+            object-fit: cover; 
+            display: block;
+            transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        /* Hover Effects */
+        .gallery-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px rgba(45, 71, 57, 0.15);
+        }
+
+        .gallery-item:hover img { 
+            transform: scale(1.05);
+        }
+
+        /* Parent container hover effect (Baki pictures halki si fade ho jayengi jab kisi ek par hover hoga) */
+        .gallery-grid:hover .gallery-item:not(:hover) {
+            opacity: 0.75;
+        }
+
+        /* Keyframes */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Mobile Optimization */
+        @media (max-width: 768px) {
+            nav { flex-direction: column; gap: 25px; padding: 25px 5%; }
+            nav ul { gap: 5px; }
+            nav ul li a { padding: 8px 12px; font-size: 0.75rem; }
+            h1 { font-size: 2.3rem; margin-bottom: 40px; }
+            .gallery-grid { gap: 20px; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+            .gallery-grid img { height: 220px; }
+        }
+    </style>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav> 
+        <div class="logo">The Golden Fork</div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="menu.html">Menu</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <section class="container">
+        <h1>Our Gallery</h1>
+        
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600" alt="Gourmet Food">
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1552566626-52f8b828add9?w=600" alt="Restaurant Ambiance">
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=600" alt="Signature Drinks">
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
